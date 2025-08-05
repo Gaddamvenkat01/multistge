@@ -1,15 +1,18 @@
 name: multistage
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 jobs:
  build: 
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo" build step"
+   runs-on: ubuntu-latest
+   steps:
+   - run: echo" building .."
  test: 
   runs-on: ubuntu-latest
   needs: build
   steps:
-    - run: echo" test stage"
+  - run: echo" test stage"
  deploy: 
   runs-on: ubuntu-latest
   needs: test

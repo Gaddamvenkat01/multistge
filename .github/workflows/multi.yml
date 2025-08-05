@@ -4,4 +4,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: "echo building"
+      - run: echo 'building'
+  test:
+    runs-on: ubunut-latest
+    needs: build
+    steps:
+      - run: echo 'testing'
+
+
+    
